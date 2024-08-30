@@ -1,16 +1,2 @@
 #!/bin/bash
-
-# Convert WATER from base water to base 10
-water_to_dec=$(echo "$WATER" | tr 'ewatr' '01234')
-
-# Convert STIR from base stir to base 10
-stir_to_dec=$(echo "$STIR" | tr 'ti.irtr' '01234')
-
-# Add the two numbers in base 10
-sum_dec=$((water_to_dec + stir_to_dec))
-
-# Convert the result from base 10 to base bestchol
-result=$(echo "$sum_dec" | tr '0123456789' 'shtebolhc')
-
-# Print the result in base bestchol
-echo "$result"
+printf '%o\n' $(( $((5#$(echo $STIR | tr 'stir.' '01234'))) + $((5#$(echo $WATER | tr 'water' '01234'))) )) | tr '01234567' 'behlnort'
